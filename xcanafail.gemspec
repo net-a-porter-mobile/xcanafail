@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Sam Dean"]
   s.email       = 'sam.dean@net-a-porter.com'
   s.files       = ["lib/xcanafail.rb"]
+  s.executables << 'xcanafail'
   s.homepage    =
     'http://rubygems.org/gems/xcanafail'
   s.license       = 'APACHE'

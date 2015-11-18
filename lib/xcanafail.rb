@@ -77,7 +77,7 @@ class XCAnafail
 
       ARGF.each_line { |line|
         # We should appear transparent to the end user
-        #puts line
+        puts line
 
         # Get each line from the pipe and see where we are
         if FILE_LINE_REGEX.match(line)

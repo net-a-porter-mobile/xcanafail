@@ -4,8 +4,6 @@
 require 'optparse'
 require 'ostruct'
 
-puts /.*/.match ARGV[0]
-
 #
 # A class to give this gem some scope. The designed way to use it is through the binary, though all the binary does is call the run method on this class.
 #

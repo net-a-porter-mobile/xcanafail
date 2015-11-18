@@ -11,11 +11,11 @@ puts /.*/.match ARGV[0]
 #
 # ==== Examples
 #
-#   > xctool -workspace MyApp.workspace -scheme MyApp.scheme analyze | xcanafail
+#   > xctool -workspace MyApp.workspace -scheme MyApp.scheme -reporter plain analyze | xcanafail
 #
 # If you want to preserve the exitcode of xctool, set pipefail before running this, e.g.
 #
-#   > set -o pipefail | xctool -workspace MyApp.workspace -scheme MyApp.scheme analyze | xcanafail
+#   > set -o pipefail | xctool -workspace MyApp.workspace -scheme MyApp.scheme -reporter plain analyze | xcanafail
 #
 class XCAnafail
 

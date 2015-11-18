@@ -26,14 +26,14 @@ class XCAnatest
     options = OpenStruct.new
     options.output = '/dev/null'
     OptionParser.new do |opts|
-      opts.banner = "Usage: xcanafail.rb [options]"
+      opts.banner = 'Usage: xcanafail.rb [options]'
 
-      opts.on("-o", "--out FILE", "An optional output file") do |o|
+      opts.on('-o', '--out FILE', 'An optional output file') do |o|
         options.output = o
       end
 
       # No argument, shows at tail.  This will print an options summary.
-      opts.on_tail("-h", "--help", "Show this message") do
+      opts.on_tail('-h', '--help', 'Show this message') do
         puts opts
         exit
       end

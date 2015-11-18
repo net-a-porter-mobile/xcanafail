@@ -19,15 +19,15 @@ class XCAnafail
 
   # Keep track of which file we are currently looking at
   private
-  FILE_LINE_REGEX = /^ *~ Analyze (.*)/
+  FILE_LINE_REGEX = / *~ Analyze (.*)/
 
   # Detect when a separator has happened
   private
-  SEPARATOR_REGEX = /^-*$/
+  SEPARATOR_REGEX = /--------------------------------------------------------------------------------/
 
   # Check to see if there have been any warnings created
   private
-  WARNING_COUNT_LINE_REGEX = /^[0-9]* warning.* generated./
+  WARNING_COUNT_LINE_REGEX = /[0-9]* warning.* generated./
 
   # An enumeration to store some state about where we are in the parse
   private
@@ -77,10 +77,10 @@ class XCAnafail
 
       ARGF.each_line { |line|
         # We should appear transparent to the end user
-        puts line
+        #puts line
 
         # Get each line from the pipe and see where we are
-        if FILE_LINE_REGEX.match(line.encode('UTF-8'))
+        if FILE_LINE_REGEX.match(line)
           current_file = line
           next
         end

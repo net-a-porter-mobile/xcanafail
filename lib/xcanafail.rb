@@ -3,23 +3,37 @@
 require 'optparse'
 require 'ostruct'
 
+#
+# A class to give this gem some scope. The designed way to use it is through the binary, though all the binary does is call the run method on this class.
+#
+# ==== Examples
+#
+#   > xctool -workspace MyApp.workspace -scheme MyApp.scheme analyze | xcanafail
+#
+# If you want to preserve the exitcode of xctool, set pipefail before running this, e.g.
+#
+#   > set -o pipefail | xctool -workspace MyApp.workspace -scheme MyApp.scheme analyze | xcanafail
+#
 class XCAnatest
 
   # Keep track of which file we are currently looking at
-  FILE_LINE_REGEX = /^ *~ Analyze (.*)/
+  private FILE_LINE_REGEX = /^ *~ Analyze (.*)/
 
   # Detect when a separator has happened
-  SEPARATOR_REGEX = /^-*$/
+  private SEPARATOR_REGEX = /^-*$/
 
   # Check to see if there have been any warnings created
-  WARNING_COUNT_LINE_REGEX = /^[0-9]* warning.* generated./
+  private WARNING_COUNT_LINE_REGEX = /^[0-9]* warning.* generated./
 
   # An enumeration to store some state about where we are in the parse
-  module ParseState
-    ROOT = 0
-    INSIDE_BLOCK = 1 # We are inside a greyed out message block
+  private module ParseState
+    private ROOT = 0
+    private INSIDE_BLOCK = 1 # We are inside a greyed out message block
   end
 
+  #
+  # This method will start to read in from either a pipe for stdin, parse the input to detect any analysis warnings and then stream the input back out through stdout
+  #
   def self.run
 
     # Read in the arguments and verify etc.
@@ -97,7 +111,6 @@ class XCAnatest
         #puts line
       }
     end
-
 
     exit(exit_code)
 

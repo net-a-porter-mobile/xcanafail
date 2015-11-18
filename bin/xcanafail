@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
+# encoding: UTF-8
 
-require 'xcanafail'
+require_relative '../lib/xcanafail'
 
-XCAnatest.run
+XCAnafail.run

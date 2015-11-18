@@ -1,7 +1,10 @@
 #!/usr/bin/ruby
+# encoding: UTF-8
 
 require 'optparse'
 require 'ostruct'
+
+puts /.*/.match ARGV[0]
 
 #
 # A class to give this gem some scope. The designed way to use it is through the binary, though all the binary does is call the run method on this class.
@@ -14,21 +17,28 @@ require 'ostruct'
 #
 #   > set -o pipefail | xctool -workspace MyApp.workspace -scheme MyApp.scheme analyze | xcanafail
 #
-class XCAnatest
+class XCAnafail
 
   # Keep track of which file we are currently looking at
-  private FILE_LINE_REGEX = /^ *~ Analyze (.*)/
+  private
+  FILE_LINE_REGEX = /^ *~ Analyze (.*)/
 
   # Detect when a separator has happened
-  private SEPARATOR_REGEX = /^-*$/
+  private
+  SEPARATOR_REGEX = /^-*$/
 
   # Check to see if there have been any warnings created
-  private WARNING_COUNT_LINE_REGEX = /^[0-9]* warning.* generated./
+  private
+  WARNING_COUNT_LINE_REGEX = /^[0-9]* warning.* generated./
 
   # An enumeration to store some state about where we are in the parse
-  private module ParseState
-    private ROOT = 0
-    private INSIDE_BLOCK = 1 # We are inside a greyed out message block
+  private
+  module ParseState
+    private
+    ROOT = 0
+
+    private
+    INSIDE_BLOCK = 1 # We are inside a greyed out message block
   end
 
   #
@@ -72,7 +82,7 @@ class XCAnatest
         puts line
 
         # Get each line from the pipe and see where we are
-        if FILE_LINE_REGEX.match(line)
+        if FILE_LINE_REGEX.match(line.encode('UTF-8'))
           current_file = line
           next
         end

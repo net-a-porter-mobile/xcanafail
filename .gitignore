@@ -10,6 +10,9 @@
 /test/version_tmp/
 /tmp/
 
+# We don't have complex setup so we don't need RubyMine config in the repo
+.idea
+
 ## Specific to RubyMotion:
 .dat*
 .repl_history

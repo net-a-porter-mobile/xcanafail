@@ -10,4 +10,5 @@ Gem::Specification.new do |s|
   s.executables << 'xcanafail'
   s.homepage    = 'http://rubygems.org/gems/xcanafail'
   s.license     = 'APACHE'
+  s.metadata    = { 'source' => 'https://github.com/net-a-porter-mobile/xcanafail' }
 end

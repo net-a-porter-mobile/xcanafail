@@ -8,12 +8,8 @@ require 'ostruct'
 # A class to give this gem some scope. The designed way to use it is through the binary, though all the binary does is call the run method on this class.
 #
 # ==== Examples
-#
-#   > xctool -workspace MyApp.workspace -scheme MyApp.scheme -reporter plain analyze | xcanafail
-#
-# If you want to preserve the exitcode of xctool, set pipefail before running this, e.g.
-#
-#   > set -o pipefail | xctool -workspace MyApp.workspace -scheme MyApp.scheme -reporter plain analyze | xcanafail
+#   > set -o pipefail
+#   > xctool -workspace MyApp.workspace -scheme MyApp.scheme -reporter plain analyze | xcanafail | <other utilities>
 #
 class XCAnafail
 

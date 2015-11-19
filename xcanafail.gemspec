@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'xcanafail'
-  s.version     = '0.0.10'
+  s.version     = '0.0.11'
   s.date        = '2015-11-12'
   s.summary     = 'Pipe in the output of `xctool analyze` and it will fail on warnings.'
   s.description = 'Pipe in the output of `xctool analyze` and it will fail on warnings. This is designed as a temporary workaround for the --fail-on-warnings flag not failing on warnings :) When that bug is fixed, this gem should go away immediately.'
@@ -9,6 +9,6 @@ Gem::Specification.new do |s|
   s.files       = ['lib/xcanafail.rb']
   s.executables << 'xcanafail'
   s.homepage    = 'http://rubygems.org/gems/xcanafail'
-  s.license     = 'APACHE'
+  s.license     = 'Apache-2.0'
   s.metadata    = { 'source' => 'https://github.com/net-a-porter-mobile/xcanafail' }
 end

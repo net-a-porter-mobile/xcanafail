@@ -81,6 +81,9 @@ class XCAnafail
           next
         end
 
+        # If we don't know which file we are in yet, don't process the rest of this line
+        next if current_file.nil?
+
         # Or if we are going in/out of a separator block?
         if SEPARATOR_REGEX.match(line)
 
